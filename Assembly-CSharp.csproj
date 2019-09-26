@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BoxBounce.cs" />
     <Compile Include="Assets\Scripts\BoxSpawner.cs" />
+    <Compile Include="Assets\Scripts\ShowStat.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Onedrive/Study/Code/OOAD/Project/Demo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

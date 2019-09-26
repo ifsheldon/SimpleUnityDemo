@@ -8,9 +8,9 @@ public class BoxSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject prefabBox;
 
-    private const float MIN_SPAWN_DELAY = 0.5f;
+    private const float MIN_SPAWN_DELAY = 0.3f;
 
-    private const float MAX_SPAWN_DELAY = 1.0f;
+    private const float MAX_SPAWN_DELAY = 0.8f;
 
     private const float MIN_SCALING_X = 1.0f;
     private const float MAX_SCALING_X = 1.5f;
@@ -31,7 +31,7 @@ public class BoxSpawner : MonoBehaviour
     void Update()
     {
         GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
-        if (boxes.Length < 5)
+        if (boxes.Length < 7)
         {
             if (spawnTimer.Finished)
             {
@@ -42,16 +42,17 @@ public class BoxSpawner : MonoBehaviour
         }
     }
 
-    void SpawnBox()
+    public void SpawnBox()
     {
         Vector3 location = new Vector3(Random.Range(0, Screen.width), Screen.height, -Camera.main.transform.position.z);
         Vector3 world_location = Camera.main.ScreenToWorldPoint(location);
         GameObject box = Instantiate(prefabBox) as GameObject;
-        box.transform.localScale = new Vector3(Random.Range(MIN_SCALING_X,MAX_SCALING_X)* box.transform.localScale.x, Random.Range(MIN_SCALING_Y,MAX_SCALING_Y)* box.transform.localScale.y, box.transform.localScale.y);
+        box.transform.localScale = new Vector3(Random.Range(MIN_SCALING_X, MAX_SCALING_X) * box.transform.localScale.x,
+            Random.Range(MIN_SCALING_Y, MAX_SCALING_Y) * box.transform.localScale.y, box.transform.localScale.y);
 //        print(box.transform.lossyScale);
         box.transform.position = world_location;
         box.transform.position = new Vector3(box.transform.position.x,
-            box.transform.position.y + box.transform.lossyScale.y / 1.5f, box.transform.position.z);
+            box.transform.position.y + box.transform.lossyScale.y, box.transform.position.z);
 //        print(box.transform.position);
         var result = OutOfScreen(box);
         bool outLeft = result.Item4;
