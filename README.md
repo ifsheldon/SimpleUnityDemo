@@ -3,5 +3,5 @@
 ## TODOs
 
 * Set Background
-* Keyboard & Mouse Interaction
+* Improve logic
 * CG
