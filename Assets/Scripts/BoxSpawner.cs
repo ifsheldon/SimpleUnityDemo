@@ -44,6 +44,7 @@ public class BoxSpawner : MonoBehaviour
 
     public void SpawnBox()
     {
+        // remember to use Physics2D.OverlapArea to check potential collision before spawning 
         Vector3 location = new Vector3(Random.Range(0, Screen.width), Screen.height, -Camera.main.transform.position.z);
         Vector3 world_location = Camera.main.ScreenToWorldPoint(location);
         GameObject box = Instantiate(prefabBox) as GameObject;
