@@ -28,12 +28,6 @@ public class BoxBounce : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        // ugly, temp
-        gameObject.transform.rotation = Quaternion.identity;
-    }
-
     void OnMouseDown()
     {
         if (transform.position.y <= 0)
@@ -41,8 +35,5 @@ public class BoxBounce : MonoBehaviour
             Destroy(gameObject);
             hit++;
         }
-        //        print("click");
     }
-
-
 }

@@ -1,6 +1,10 @@
 # A simple demo
 
+## Change Log
+
+* Improved logic with cleaner code
+
 ## TODOs
 
-* Improve logic
-* CG
+* add CG
+* add UI
