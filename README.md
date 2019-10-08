@@ -2,6 +2,5 @@
 
 ## TODOs
 
-* Set Background
 * Improve logic
 * CG
