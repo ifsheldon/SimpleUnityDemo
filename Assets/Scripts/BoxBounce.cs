@@ -20,7 +20,6 @@ public class BoxBounce : MonoBehaviour
         print(direction.y);
     }
 
-
     void OnBecameInvisible()
     {
         destroyed++;
