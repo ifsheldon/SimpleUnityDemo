@@ -9,4 +9,5 @@
 * add CG
 * add UI
 * improve game logic
+* 存档
 
