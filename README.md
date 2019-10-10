@@ -8,3 +8,5 @@
 
 * add CG
 * add UI
+* improve game logic
+
