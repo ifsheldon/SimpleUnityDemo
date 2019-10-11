@@ -11,3 +11,6 @@
 * improve game logic
 * 存档
 
+## Small Bug
+
+* boxes will block the grade counter

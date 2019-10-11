@@ -12,13 +12,13 @@ public class ShowStat : MonoBehaviour
     {
         t = GetComponent<Text>();
         //temp
-        Vector3 scTopRight = new Vector3(Screen.width / 2.2f, Screen.height / 2.2f, 0);
-        t.transform.localPosition = scTopRight;
+//        Vector3 scTopRight = new Vector3(Screen.width / 2.2f, Screen.height / 2.2f, 0);
+//        t.transform.localPosition = scTopRight;
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.text = $"Hit: {BoxBounce.hit}, Miss: {BoxBounce.destroyed-BoxBounce.hit}";
+        t.text = $"Hit: {BoxBounce.hit}\nMiss: {BoxBounce.destroyed-BoxBounce.hit}";
     }
 }
