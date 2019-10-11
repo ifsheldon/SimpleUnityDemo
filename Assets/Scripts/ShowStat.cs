@@ -11,11 +11,13 @@ public class ShowStat : MonoBehaviour
     void Start()
     {
         t = GetComponent<Text>();
-        //temp
-//        Vector3 scTopRight = new Vector3(Screen.width / 2.2f, Screen.height / 2.2f, 0);
-//        t.transform.localPosition = scTopRight;
     }
 
+    void OnEnable()
+    {
+        BoxBounce.hit = 0;
+        BoxBounce.destroyed = 0;
+    }
     // Update is called once per frame
     void Update()
     {

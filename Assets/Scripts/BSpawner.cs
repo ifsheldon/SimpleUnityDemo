@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net;
+using UnityEngine;
 
 public class BSpawner : MonoBehaviour
 {
@@ -15,11 +16,13 @@ public class BSpawner : MonoBehaviour
     private const float MAX_SCALING_Y = 1.5f;
 
     private Timer spawnTimer;
+    private Actioner actioner;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnTimer = gameObject.AddComponent<Timer>();
+        actioner = Camera.main.GetComponent<Actioner>();
         spawnTimer.Duration = Random.Range(MIN_SPAWN_DELAY, MAX_SPAWN_DELAY);
         spawnTimer.Run();
     }
@@ -27,17 +30,21 @@ public class BSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
-        if (boxes.Length < boxNum)
+        if (actioner.Action)
         {
-            if (spawnTimer.Finished)
+            GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
+            if (boxes.Length < boxNum)
             {
-                SpawnBox();
-                spawnTimer.Duration = Random.Range(MIN_SPAWN_DELAY, MAX_SPAWN_DELAY);
-                spawnTimer.Run();
+                if (spawnTimer.Finished)
+                {
+                    SpawnBox();
+                    spawnTimer.Duration = Random.Range(MIN_SPAWN_DELAY, MAX_SPAWN_DELAY);
+                    spawnTimer.Run();
+                }
             }
         }
     }
+
 
     public void SpawnBox()
     {
@@ -64,7 +71,8 @@ public class BSpawner : MonoBehaviour
                 wcLocation.x = outLeft ? boxWidth : (result.Item2 - boxWidth);
             }
 
-            Collider2D collider = Physics2D.OverlapArea(new Vector2(wcLocation.x - boxWidth, wcLocation.y - wcLocalScale.y / 2.0f),
+            Collider2D collider = Physics2D.OverlapArea(
+                new Vector2(wcLocation.x - boxWidth, wcLocation.y - wcLocalScale.y / 2.0f),
                 new Vector2(wcLocation.x + boxWidth, wcLocation.y + wcLocalScale.y / 2.0f));
             existPotentialCollision = collider != null;
         } while (existPotentialCollision);
