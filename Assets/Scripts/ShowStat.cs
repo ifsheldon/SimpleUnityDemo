@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class ShowStat : MonoBehaviour
 {
+    public static int hit = 0;
+
+    public static int destroyed = 0;
+
     // Start is called before the first frame update
     private Text t;
+
     void Start()
     {
         t = GetComponent<Text>();
@@ -15,12 +20,13 @@ public class ShowStat : MonoBehaviour
 
     void OnEnable()
     {
-        BoxBounce.hit = 0;
-        BoxBounce.destroyed = 0;
+        hit = 0;
+        destroyed = 0;
     }
+
     // Update is called once per frame
     void Update()
     {
-        t.text = $"Hit: {BoxBounce.hit}\nMiss: {BoxBounce.destroyed-BoxBounce.hit}";
+        t.text = $"Hit: {hit}\nMiss: {destroyed - hit}";
     }
 }

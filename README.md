@@ -8,8 +8,8 @@
 
 * add CG
 * add UI
-* improve game logics of BoxBounce.cs and ShowStat.cs
 * 存档
+* add logic to slider
 
 ## Small Bug
 
