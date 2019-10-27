@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Threading;
 using UnityEngine;
 
 public class BSpawner : MonoBehaviour
@@ -48,7 +49,6 @@ public class BSpawner : MonoBehaviour
 
     public void SpawnBox()
     {
-        // remember to use Physics2D.OverlapArea to check potential collision before spawning 
         Vector3 wcLocation, wcLocalScale;
         bool existPotentialCollision;
         do
@@ -59,7 +59,7 @@ public class BSpawner : MonoBehaviour
             wcLocalScale = new Vector3(
                 Random.Range(MIN_SCALING_X, MAX_SCALING_X) * prefabBox.transform.localScale.x,
                 Random.Range(MIN_SCALING_Y, MAX_SCALING_Y) * prefabBox.transform.localScale.y,
-                prefabBox.transform.localScale.y);
+                prefabBox.transform.localScale.z);
             wcLocation.y = wcLocation.y + wcLocalScale.y;
             var result = OutOfScreen(wcLocation, wcLocalScale);
             float boxWidth = result.Item3;
@@ -75,9 +75,12 @@ public class BSpawner : MonoBehaviour
                 new Vector2(wcLocation.x - boxWidth, wcLocation.y - wcLocalScale.y / 2.0f),
                 new Vector2(wcLocation.x + boxWidth, wcLocation.y + wcLocalScale.y / 2.0f));
             existPotentialCollision = collider != null;
+            if (existPotentialCollision)
+                Thread.Sleep(100);
         } while (existPotentialCollision);
-
         GameObject box = Instantiate(prefabBox);
+        Rigidbody2D rigidbody = box.GetComponent<Rigidbody2D>();
+        rigidbody.AddForce(new Vector2(0, -Random.Range(10.0f, 15.0f)), ForceMode2D.Impulse);
         box.transform.localScale = wcLocalScale;
         box.transform.position = wcLocation;
     }
