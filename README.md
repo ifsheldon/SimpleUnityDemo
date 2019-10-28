@@ -6,6 +6,7 @@
 
 ## TODOs
 
+* 重构代码，用event manager
 * add CG
 * add UI
 * 存档
