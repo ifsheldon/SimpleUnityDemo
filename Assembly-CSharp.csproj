@@ -61,9 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actioner.cs" />
-    <Compile Include="Assets\Scripts\BoxBounce.cs" />
+    <Compile Include="Assets\Scripts\Box.cs" />
     <Compile Include="Assets\Scripts\BoxCleaner.cs" />
     <Compile Include="Assets\Scripts\BSpawner.cs" />
+    <Compile Include="Assets\Scripts\Saver.cs" />
     <Compile Include="Assets\Scripts\ShowStat.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

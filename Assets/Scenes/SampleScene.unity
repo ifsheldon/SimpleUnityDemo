@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -189,10 +189,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -208,21 +205,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24109190b62ed9741a89ff8f327cc9cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabBox: {fileID: 8988696591431926038, guid: 63f3e881f9e056141aee1bd16eeb679d,
-    type: 3}
-  boxNum: 7
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -321,30 +303,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32009f82563407d428c742d298415b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0f67b21a1749f4b9530e05b0e7980a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &588789232
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +775,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: startAction
         m_Mode: 1
         m_Arguments:
@@ -828,7 +786,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: deactivate
         m_Mode: 2
         m_Arguments:
@@ -839,7 +797,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: setActivated
         m_Mode: 2
         m_Arguments:
@@ -850,7 +808,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: setActivated
         m_Mode: 2
         m_Arguments:
@@ -861,7 +819,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: setActivated
         m_Mode: 2
         m_Arguments:
@@ -911,6 +869,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473758345}
   m_CullTransparentMesh: 0
+--- !u!1 &1497750155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497750156}
+  - component: {fileID: 1497750157}
+  - component: {fileID: 1497750159}
+  - component: {fileID: 1497750158}
+  m_Layer: 0
+  m_Name: GlobalManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497750156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497750155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497750157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497750155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24109190b62ed9741a89ff8f327cc9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabBox: {fileID: 8988696591431926038, guid: 63f3e881f9e056141aee1bd16eeb679d,
+    type: 3}
+  boxNum: 7
+--- !u!114 &1497750158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497750155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0f67b21a1749f4b9530e05b0e7980a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1497750159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497750155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32009f82563407d428c742d298415b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1651118030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1068,7 @@ GameObject:
   - component: {fileID: 2048817570}
   - component: {fileID: 2048817569}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1087,7 @@ RectTransform:
   m_Children:
   - {fileID: 1969880021}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1160,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02670366, y: 0.8472632}
   m_AnchorMax: {x: 0.11443131, y: 0.93152636}
-  m_AnchoredPosition: {x: -5, y: 1.8399963}
+  m_AnchoredPosition: {x: -4.9999695, y: 1.8399963}
   m_SizeDelta: {x: 1.8800049, y: 3.6800003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112997493
@@ -1203,7 +1233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: stopAction
         m_Mode: 1
         m_Arguments:
@@ -1214,7 +1244,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: deactivate
         m_Mode: 2
         m_Arguments:
@@ -1225,7 +1255,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: setActivated
         m_Mode: 2
         m_Arguments:
@@ -1236,7 +1266,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: deactivate
         m_Mode: 2
         m_Arguments:
@@ -1247,7 +1277,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420035}
+      - m_Target: {fileID: 1497750158}
         m_MethodName: cleanAllBoxes
         m_Mode: 1
         m_Arguments:
@@ -1258,7 +1288,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 519420034}
+      - m_Target: {fileID: 1497750159}
         m_MethodName: deactivate
         m_Mode: 2
         m_Arguments:

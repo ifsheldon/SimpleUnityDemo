@@ -23,7 +23,7 @@ public class BSpawner : MonoBehaviour
     void Start()
     {
         spawnTimer = gameObject.AddComponent<Timer>();
-        actioner = Camera.main.GetComponent<Actioner>();
+        actioner = GameObject.FindGameObjectWithTag("GameController").GetComponent<Actioner>();
         spawnTimer.Duration = Random.Range(MIN_SPAWN_DELAY, MAX_SPAWN_DELAY);
         spawnTimer.Run();
     }
