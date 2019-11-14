@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Helper class
+/// </summary>
 public class BoxCleaner : MonoBehaviour
 {
     public void cleanAllBoxes()

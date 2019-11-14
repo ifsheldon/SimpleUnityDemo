@@ -1,7 +1,9 @@
 ﻿using System.Net;
 using System.Threading;
 using UnityEngine;
-
+/// <summary>
+/// Box Spawner
+/// </summary>
 public class BSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject prefabBox;

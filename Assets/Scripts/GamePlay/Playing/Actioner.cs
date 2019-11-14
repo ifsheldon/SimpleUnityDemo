@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The class acts as a flag of whether the game is playing
+/// </summary>
 public class Actioner : MonoBehaviour
 {
     private bool action = false;
@@ -25,13 +26,4 @@ public class Actioner : MonoBehaviour
         action = false;
     }
 
-    public void setActivated(GameObject gameObject)
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void deactivate(GameObject gameObject)
-    {
-        gameObject.SetActive(false);
-    }
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// The class contains event handlers for events happening in the Main Scene
+/// </summary>
 public class UIEventHandler : MonoBehaviour
 {
     private EventsManager eventsManager;
@@ -20,6 +21,8 @@ public class UIEventHandler : MonoBehaviour
 
     public void HandleExitEvent(int i)
     {
+        ConfigManager.save();
+        print("Application Quit");
         Application.Quit();
     }
 

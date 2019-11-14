@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// The class for handling actions on StartButton in Main Scene
+/// </summary>
 public class StartButton : MonoBehaviour
 {
     

@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+///
+/// The class for handling actions on the Quit button in Main Scene
+/// </summary>
 public class EndGameButton : MonoBehaviour
 {
     private EventsManager eventsManager;

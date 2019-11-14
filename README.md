@@ -1,15 +1,14 @@
 # A simple demo
 
-## Change Log 2019.11.10
+## Change Log 2019.11.14
 
-* refactored most of codes using Observer Pattern via implementing listeners
-* **added scenes and codes for controlling changing between scenes**
+* Added codes of storing configurations
 
 ## TODOs
 
 * add CG
 * add UI
-* 存档
+* complete the codes of storing configurations
 * add logic to slider
 
 ## Small Bug

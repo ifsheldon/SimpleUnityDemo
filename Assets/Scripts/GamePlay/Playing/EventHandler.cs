@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// This class contains event handlers for events in the Playing Scene
+/// </summary>
 public class EventHandler : MonoBehaviour
 {
     private EventsManager eventsManager;

@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// the class is for facilitating retrieving components that are usually used.
+/// </summary>
 public static class EasyGetter
 {
     public static GameObject GetGlobalManager()

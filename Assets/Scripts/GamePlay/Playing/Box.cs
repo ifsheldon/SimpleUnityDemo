@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+/// <summary>
+///
+/// The class handling actions on the Box
+/// </summary>
 public class Box : MonoBehaviour
 {
     // Start is called before the first frame update

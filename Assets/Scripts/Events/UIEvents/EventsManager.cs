@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class EventsManager : MonoBehaviour
 {
-
     Dictionary<EventType, List<UnityEvent<int>>> eventTypeDictionary =
         new Dictionary<EventType, List<UnityEvent<int>>>();
 
@@ -14,6 +13,9 @@ public class EventsManager : MonoBehaviour
 
     void Awake()
     {
+        // init Config manager, because Unity lazily init static classes
+        Config c = ConfigManager.Configuration;
+        // init self, register all eventTypes
         foreach (EventType eventType in Enum.GetValues(typeof(EventType)))
         {
             if (!eventTypeDictionary.ContainsKey(eventType))
