@@ -1,25 +1,50 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using SysRandom = System.Random;
+
 /// <summary>
-/// Box Spawner
+/// Box Spawner: generator of music boxes.
 /// </summary>
 public class BSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject prefabBox;
+    [SerializeField] private GameObject prefabBoxUp;
+    [SerializeField] private GameObject prefabBoxDown;
+    [SerializeField] private GameObject prefabBoxLeft;
+    [SerializeField] private GameObject prefabBoxRight;
     [SerializeField] private int boxNum = 7;
+    private GameObject[] prefabBoxes = new GameObject[4];
 
+    // Spawn settings for boxes
     private const float MIN_SPAWN_DELAY = 0.3f;
-
     private const float MAX_SPAWN_DELAY = 0.8f;
 
-    private const float MIN_SCALING_X = 1.0f;
-    private const float MAX_SCALING_X = 1.5f;
-    private const float MIN_SCALING_Y = 1.0f;
-    private const float MAX_SCALING_Y = 1.5f;
+    // Size definition of boxes, range from min to max
+    private const float MIN_SCALING_X = 0.3f;
+    private const float MAX_SCALING_X = 0.301f;
+    private const float MIN_SCALING_Y = 0.3f;
+    private const float MAX_SCALING_Y = 0.301f;
+
+    // Falling speed range
+    private const float MIN_FORCE = 3.0f;
+    private const float MAX_FORCE = 5.0f;
 
     private Timer spawnTimer;
     private Actioner actioner;
+    private BoxPolarity[] boxPolarities;
+    private SysRandom random;
+
+    void Awake()
+    {
+        boxPolarities = Enum.GetValues(typeof(BoxPolarity)) as BoxPolarity[];
+        prefabBoxes[0] = prefabBoxUp;
+        prefabBoxes[1] = prefabBoxDown;
+        prefabBoxes[2] = prefabBoxLeft;
+        prefabBoxes[3] = prefabBoxRight;
+        random = new SysRandom();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +78,8 @@ public class BSpawner : MonoBehaviour
     {
         Vector3 wcLocation, wcLocalScale;
         bool existPotentialCollision;
+        int kind = random.Next(0, boxPolarities.Length);
+        GameObject prefabBox = prefabBoxes[kind];
         do
         {
             Vector3 scLocation = new Vector3(Random.Range(0, Screen.width), Screen.height,
@@ -83,7 +110,9 @@ public class BSpawner : MonoBehaviour
 
         GameObject box = Instantiate(prefabBox);
         Rigidbody2D rigidbody = box.GetComponent<Rigidbody2D>();
-        rigidbody.AddForce(new Vector2(0, -Random.Range(10.0f, 13.0f)), ForceMode2D.Impulse);
+        Box b = box.GetComponent<Box>();
+        b.Polarity = boxPolarities[kind];
+        rigidbody.AddForce(new Vector2(0, -Random.Range(MIN_FORCE, MAX_FORCE)), ForceMode2D.Impulse);
         box.transform.localScale = wcLocalScale;
         box.transform.position = wcLocation;
     }
