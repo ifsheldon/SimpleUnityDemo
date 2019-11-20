@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class EventHandler : MonoBehaviour
 {
-    private EventsManager eventsManager;
+    private EventsManager uiEventsManager;
     private Actioner actioner;
     private BoxCleaner boxCleaner;
     private GameObject globalManager;
     // Start is called before the first frame update
     void Start()
     {
-        globalManager = GameObject.FindGameObjectWithTag("GameController");
+        globalManager = EasyGetter.GetGlobalManager();
         actioner = globalManager.GetComponent<Actioner>();
         boxCleaner = globalManager.GetComponent<BoxCleaner>();
-        eventsManager = globalManager.GetComponent<EventsManager>();
-        eventsManager.AddListener(EventType.GoBackMainEvent,HandleGoBackMainEvent);
+        uiEventsManager = globalManager.GetComponent<EventsManager>();
+        uiEventsManager.AddListener(EventType.GoBackMainEvent,HandleGoBackMainEvent);
     }
 
     public void HandleGoBackMainEvent(int i)

@@ -1,8 +1,8 @@
 # A simple demo
 
-## Change Log 2019.11.14
+## Change Log 2019.11.20
 
-* Added codes of storing configurations
+* Changed game logic, using keyboard now
 
 ## TODOs
 

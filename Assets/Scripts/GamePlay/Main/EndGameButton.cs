@@ -14,7 +14,7 @@ public class EndGameButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eventsManager = EasyGetter.GetEventsManager();
+        eventsManager = EasyGetter.GetUIEventsManager();
         exit = new ExitGameEvent();
         eventsManager.AddEvent(EventType.ExitGameEvent, exit);
     }

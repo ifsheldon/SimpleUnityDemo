@@ -16,14 +16,25 @@ public static class EasyGetter
         return GameObject.FindGameObjectWithTag(tag);
     }
 
-    public static EventsManager GetEventsManager()
+    public static EventsManager GetUIEventsManager()
     {
         GameObject manager = GetGlobalManager();
         return manager.GetComponent<EventsManager>();
     }
 
-    public static EventsManager GetEventsManager(GameObject globalManager)
+    public static EventsManager GetUIEventsManager(GameObject globalManager)
     {
         return globalManager.GetComponent<EventsManager>();
+    }
+
+    public static GameEventManager GetGameEventManager()
+    {
+        GameObject manager = GetGlobalManager();
+        return manager.GetComponent<GameEventManager>();
+    }
+
+    public static GameEventManager GetGameEventManager(GameObject globalManager)
+    {
+        return globalManager.GetComponent<GameEventManager>();
     }
 }

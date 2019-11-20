@@ -10,7 +10,7 @@ public class UIEventHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eventsManager = EasyGetter.GetEventsManager();
+        eventsManager = EasyGetter.GetUIEventsManager();
         eventsManager.AddListener(EventType.GameStartedEvent, HandleStartEvent);
         eventsManager.AddListener(EventType.ExitGameEvent, HandleExitEvent);
     }

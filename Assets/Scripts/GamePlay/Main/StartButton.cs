@@ -15,7 +15,7 @@ public class StartButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eventsManager = EasyGetter.GetEventsManager();
+        eventsManager = EasyGetter.GetUIEventsManager();
         start = new GameStartedEvent();
         eventsManager.AddEvent(EventType.GameStartedEvent, start);
     }

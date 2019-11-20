@@ -63,6 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\Events\GameEvents\DownArrowHit.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\EscHit.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\GameEventManager.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\GameEventType.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\LeftArrowHit.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\RightArrowHit.cs" />
+    <Compile Include="Assets\scripts\Events\GameEvents\UpArrowHit.cs" />
     <Compile Include="Assets\scripts\Events\UIEvents\EventsManager.cs" />
     <Compile Include="Assets\scripts\Events\UIEvents\EventType.cs" />
     <Compile Include="Assets\scripts\Events\UIEvents\ExitGameEvent.cs" />
@@ -75,8 +82,10 @@
     <Compile Include="Assets\scripts\GamePlay\Playing\Actioner.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\Box.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\BoxCleaner.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Playing\BoxPolarity.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\BSpawner.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\EventHandler.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Playing\InputChecker.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\QuitButton.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\ShowStat.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\Timer.cs" />

@@ -15,7 +15,7 @@ public class QuitButton : MonoBehaviour
     void Start()
     {
         quit = new GoBackMainEvent();
-        eventsManager = EasyGetter.GetEventsManager();
+        eventsManager = EasyGetter.GetUIEventsManager();
         eventsManager.AddEvent(EventType.GoBackMainEvent, quit);
     }
 
