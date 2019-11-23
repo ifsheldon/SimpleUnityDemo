@@ -6,9 +6,24 @@
 /// </summary>
 public class Box : MonoBehaviour
 {
-    private GameEventManager gameEventManager;
+    // Constants from configuration
+    private static float PERFECT_BASELINE = ConfigManager.Configuration.perfect_baseline;
+    private static float ALLOW_HIT_AREA = ConfigManager.Configuration.allow_hit_area;
+    private static float PERFECT_HIT_AREA_RANGE = ConfigManager.Configuration.perfect_hit_area_range;
+    private static int PERFECT_HIT_SCORE = ConfigManager.Configuration.perfect_hit_score;
+    private static int NORMAL_HIT_SCORE = ConfigManager.Configuration.normal_hit_score;
 
+
+    // fields
+    private GameEventManager gameEventManager;
     private BoxPolarity boxPolarity;
+    private int hitLifeTime = 1;
+
+    public int HitLifeTime
+    {
+        get => hitLifeTime;
+        set => hitLifeTime = value;
+    }
 
     public BoxPolarity Polarity
     {
@@ -42,13 +57,48 @@ public class Box : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    void OnMouseDown()
+    private int Scorer(float wc_y_pos)
     {
-        if (transform.position.y <= 0)
+        // screen space: bottom left (0.0) top right (pixelWidth,pixelHeight)
+        int pixelHeight = Screen.height;
+        int baseline_sc_y = (int) (PERFECT_BASELINE * pixelHeight);
+        int range_sc_pixels = (int) (PERFECT_HIT_AREA_RANGE * pixelHeight);
+        int upper_sc_y = baseline_sc_y + range_sc_pixels;
+        int lower_sc_y = baseline_sc_y - range_sc_pixels;
+        Vector3 sc_vec = new Vector3(0, 0, 0);
+        sc_vec.y = upper_sc_y;
+        Vector3 wc_vec = Camera.main.ScreenToWorldPoint(sc_vec);
+        float upper_wc_y = wc_vec.y;
+        sc_vec.y = lower_sc_y;
+        wc_vec = Camera.main.ScreenToWorldPoint(sc_vec);
+        float lower_wc_y = wc_vec.y;
+        if (wc_y_pos > lower_wc_y && wc_y_pos < upper_wc_y)
         {
-            Destroy(gameObject);
-            ShowStat.hit++;
+            Debug.Log("Perfect Hit");
+            return PERFECT_HIT_SCORE;
+        }
+        else
+        {
+            return NORMAL_HIT_SCORE;
+        }
+    }
+
+    void HitBox()
+    {
+        float sc_allow_area = ALLOW_HIT_AREA * Screen.height;
+        Vector3 sc_vec = new Vector3(0, sc_allow_area, 0);
+        Vector3 wc_vec = Camera.main.ScreenToWorldPoint(sc_vec);
+        float wc_allow_area = wc_vec.y;
+        bool hitable = transform.position.y <= wc_allow_area;
+        if (hitable)
+        {
+            hitLifeTime--;
+            ShowStat.score += Scorer(transform.position.y);
+            if (hitLifeTime <= 0) //预留长按lifetime = -1的情况
+            {
+                Destroy(gameObject);
+                ShowStat.hit++;
+            }
         }
     }
 
@@ -56,7 +106,7 @@ public class Box : MonoBehaviour
     {
         if (boxPolarity == BoxPolarity.Right)
         {
-            OnMouseDown();
+            HitBox();
         }
     }
 
@@ -64,7 +114,7 @@ public class Box : MonoBehaviour
     {
         if (boxPolarity == BoxPolarity.Left)
         {
-            OnMouseDown();
+            HitBox();
         }
     }
 
@@ -72,7 +122,7 @@ public class Box : MonoBehaviour
     {
         if (boxPolarity == BoxPolarity.Up)
         {
-            OnMouseDown();
+            HitBox();
         }
     }
 
@@ -80,12 +130,7 @@ public class Box : MonoBehaviour
     {
         if (boxPolarity == BoxPolarity.Down)
         {
-            OnMouseDown();
+            HitBox();
         }
     }
-
-//    void Update()
-//    {
-//        gameObject.transform.localRotation = Quaternion.identity;
-//    }
 }

@@ -21,7 +21,8 @@ public class UIEventHandler : MonoBehaviour
 
     public void HandleExitEvent(int i)
     {
-        ConfigManager.save();
+        Debug.Log("Config not saved because under development");
+//        ConfigManager.save();
         print("Application Quit");
         Application.Quit();
     }

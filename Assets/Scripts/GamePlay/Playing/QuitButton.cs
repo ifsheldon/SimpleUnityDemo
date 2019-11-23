@@ -22,7 +22,7 @@ public class QuitButton : MonoBehaviour
     public void ButtonClick()
     {
         Debug.Log("Test Codes Here");
-        ConfigManager.Configuration.chapter += 1;
+        ConfigManager.Configuration.finished_chapter += 1;
         quit.Invoke(0);
     }
 }

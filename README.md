@@ -1,23 +1,23 @@
 # A simple demo
 
-## Change Log 2019.11.20
+## Change Log 2019.11.23
 
-* Changed game logic, using keyboard now
+* Added Hit Ranking(Normal/Perfect)
+* Enabled Multiple Hit
+* Codes related to class `Config` and `Config.json` are now functioning
+* Variations of the length of boxes are supported
 
 ## TODOs
 
 * add CG
 * add UI
-* complete the codes of storing configurations
-* add logic to slider
+* add logic to slider(not important, yet)
+* support for sheet music
+* support for specifying the x position of boxes
 
 ## Small Bug
 
 * boxes will block the grade counter
-
-## To Improve
-
-* Improve the logic of `update()` in `Box.cs`
 
 ## Notice
 

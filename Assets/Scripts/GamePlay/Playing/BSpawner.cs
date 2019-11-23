@@ -10,27 +10,34 @@ using SysRandom = System.Random;
 /// </summary>
 public class BSpawner : MonoBehaviour
 {
+    // constants from configuration
+    private static int BOX_NUM_COEXIST = ConfigManager.Configuration.box_number_coexist;
+    private static float MIN_SPAWN_DELAY = ConfigManager.Configuration.min_spawn_delay;
+    private static float MAX_SPAWN_DELAY = ConfigManager.Configuration.max_spawn_delay;
+    private static float MIN_FORCE = ConfigManager.Configuration.min_force;
+    private static float MAX_FORCE = ConfigManager.Configuration.max_force;
+
+
+    // SerializeFields which can be seen in Unity editor
     [SerializeField] private GameObject prefabBoxUp;
     [SerializeField] private GameObject prefabBoxDown;
     [SerializeField] private GameObject prefabBoxLeft;
     [SerializeField] private GameObject prefabBoxRight;
-    [SerializeField] private int boxNum = 7;
-    private GameObject[] prefabBoxes = new GameObject[4];
-    private const float MIN_SPAWN_DELAY = 0.3f;
 
-    private const float MAX_SPAWN_DELAY = 0.8f;
 
-    private const float MIN_SCALING_X = 1.0f;
-    private const float MAX_SCALING_X = 1.001f;
-    private const float MIN_SCALING_Y = 1.0f;
-    private const float MAX_SCALING_Y = 1.001f;
-    private const float MIN_FORCE = 10.0f;
-    private const float MAX_FORCE = 13.0f;
-
+    // private fields
     private Timer spawnTimer;
     private Actioner actioner;
     private BoxPolarity[] boxPolarities;
     private SysRandom random;
+    private GameObject[] prefabBoxes = new GameObject[4];
+    private float y_scaler = 1.0f;
+
+    public float Y_Scaler
+    {
+        get => y_scaler;
+        set => y_scaler = value;
+    }
 
     void Awake()
     {
@@ -57,7 +64,7 @@ public class BSpawner : MonoBehaviour
         if (actioner.Action)
         {
             GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
-            if (boxes.Length < boxNum)
+            if (boxes.Length < BOX_NUM_COEXIST)
             {
                 if (spawnTimer.Finished)
                 {
@@ -82,8 +89,8 @@ public class BSpawner : MonoBehaviour
                 -Camera.main.transform.position.z);
             wcLocation = Camera.main.ScreenToWorldPoint(scLocation);
             wcLocalScale = new Vector3(
-                Random.Range(MIN_SCALING_X, MAX_SCALING_X) * prefabBox.transform.localScale.x,
-                Random.Range(MIN_SCALING_Y, MAX_SCALING_Y) * prefabBox.transform.localScale.y,
+                prefabBox.transform.localScale.x,
+                y_scaler * prefabBox.transform.localScale.y,
                 prefabBox.transform.localScale.z);
             wcLocation.y = wcLocation.y + wcLocalScale.y;
             var result = OutOfScreen(wcLocation, wcLocalScale);
@@ -113,7 +120,7 @@ public class BSpawner : MonoBehaviour
         box.transform.position = wcLocation;
     }
 
-    (float, float, float, bool, bool) OutOfScreen(Vector3 wcLocation, Vector3 wcScale)
+    private (float, float, float, bool, bool) OutOfScreen(Vector3 wcLocation, Vector3 wcScale)
     {
         Vector3 cameraLeft = new Vector3(0, 0, 0);
         Vector3 cameraRight = new Vector3(Screen.width, 0, 0);
