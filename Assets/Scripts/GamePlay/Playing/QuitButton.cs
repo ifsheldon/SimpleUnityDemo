@@ -23,6 +23,6 @@ public class QuitButton : MonoBehaviour
     {
         Debug.Log("Test Codes Here");
         ConfigManager.Configuration.finished_chapter += 1;
-        quit.Invoke(0);
+        quit.Invoke(EventsManager.UNUSED);
     }
 }

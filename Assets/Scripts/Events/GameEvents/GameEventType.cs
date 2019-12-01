@@ -4,5 +4,6 @@
     DownArrowHit,
     RightArrowHit,
     LeftArrowHit,
-    EscHit
+    EscHit,
+    SkillHit
 }

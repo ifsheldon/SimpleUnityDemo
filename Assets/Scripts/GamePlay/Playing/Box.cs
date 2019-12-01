@@ -24,6 +24,7 @@ public class Box : MonoBehaviour
     private int hitLifeTime = 1;
     private float fallingSpeed = 0.0f;
     private bool action = true;
+    private Skill skill = SkillManager.GetSkill();
 
     public float FallingSpeed
     {
@@ -52,6 +53,7 @@ public class Box : MonoBehaviour
         gameEventManager.AddListener(GameEventType.LeftArrowHit, HitLeft);
         gameEventManager.AddListener(GameEventType.RightArrowHit, HitRight);
         gameEventManager.AddListener(GameEventType.EscHit, HitEsc);
+        gameEventManager.AddListener(GameEventType.SkillHit, HitSkill);
     }
 
     void Update()
@@ -62,13 +64,14 @@ public class Box : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        if(action)
+        if (action)
         {
             gameEventManager.RemoveListener(GameEventType.DownArrowHit, HitDown);
             gameEventManager.RemoveListener(GameEventType.UpArrowHit, HitUp);
             gameEventManager.RemoveListener(GameEventType.LeftArrowHit, HitLeft);
             gameEventManager.RemoveListener(GameEventType.RightArrowHit, HitRight);
             gameEventManager.RemoveListener(GameEventType.EscHit, HitEsc);
+            gameEventManager.RemoveListener(GameEventType.SkillHit, HitSkill);
             ShowStat.destroyed++;
             Destroy(gameObject);
         }
@@ -94,6 +97,7 @@ public class Box : MonoBehaviour
             Debug.Log("Perfect Hit");
             return PERFECT_HIT_SCORE;
         }
+
         return NORMAL_HIT_SCORE;
     }
 
@@ -152,5 +156,10 @@ public class Box : MonoBehaviour
         {
             HitBox();
         }
+    }
+
+    void HitSkill()
+    {
+        skill.TakeEffect(this);
     }
 }

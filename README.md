@@ -5,6 +5,7 @@
 * added `esc` response and pause
 * added corresponding scenes
 * optimized codes
+* added support and interface for skill
 
 ## TODOs
 

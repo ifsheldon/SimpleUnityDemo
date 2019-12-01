@@ -11,8 +11,6 @@ public static class ConfigManager
     private static string defaultConfigPath = "./config.json";
     private static Config config = init();
 
-
-
     public static Config Configuration => config;
 
     private static Config init()

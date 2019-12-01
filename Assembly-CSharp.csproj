@@ -95,7 +95,11 @@
     <Compile Include="Assets\scripts\GamePlay\Playing\QuitButton.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\ResumeButton.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\ShowStat.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Playing\SkillIndicator.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\Timer.cs" />
+    <Compile Include="Assets\scripts\GamePlay\SkillManager.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\NullSkill.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\Skill.cs" />
     <Compile Include="Assets\scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\scripts\Menu\MenuNames.cs" />
     <Compile Include="Assets\scripts\SceneNames.cs" />
