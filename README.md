@@ -1,11 +1,10 @@
 # A simple demo
 
-## Change Log 2019.11.23
+## Change Log 2019.12.1
 
-* Added Hit Ranking(Normal/Perfect)
-* Enabled Multiple Hit
-* Codes related to class `Config` and `Config.json` are now functioning
-* Variations of the length of boxes are supported
+* added `esc` response and pause
+* added corresponding scenes
+* optimized codes
 
 ## TODOs
 
