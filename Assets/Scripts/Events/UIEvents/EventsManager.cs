@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class EventsManager : MonoBehaviour
 {
+    public const int UNUSED = -1;
+
     Dictionary<EventType, List<UnityEvent<int>>> eventTypeDictionary =
         new Dictionary<EventType, List<UnityEvent<int>>>();
 

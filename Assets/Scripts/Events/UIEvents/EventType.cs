@@ -4,5 +4,5 @@
 /// </summary>
 public enum EventType
 {
-    GameStartedEvent,GoBackMainEvent,PauseGameEvent,ExitGameEvent
+    ChangeSceneEvent,GoBackMainEvent,PauseGameEvent,ExitGameEvent
 }

@@ -21,6 +21,6 @@ public class EndGameButton : MonoBehaviour
 
     public void ButtonClick()
     {
-        exit.Invoke(0);
+        exit.Invoke(EventsManager.UNUSED);
     }
 }

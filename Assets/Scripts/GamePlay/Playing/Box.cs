@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <summary>
 ///
@@ -6,6 +8,8 @@
 /// </summary>
 public class Box : MonoBehaviour
 {
+    private static Vector2 FALLING_DIRECTION = new Vector2(0, -1);
+
     // Constants from configuration
     private static float PERFECT_BASELINE = ConfigManager.Configuration.perfect_baseline;
     private static float ALLOW_HIT_AREA = ConfigManager.Configuration.allow_hit_area;
@@ -18,6 +22,14 @@ public class Box : MonoBehaviour
     private GameEventManager gameEventManager;
     private BoxPolarity boxPolarity;
     private int hitLifeTime = 1;
+    private float fallingSpeed = 0.0f;
+    private bool action = true;
+
+    public float FallingSpeed
+    {
+        get => fallingSpeed;
+        set => fallingSpeed = Math.Abs(value);
+    }
 
     public int HitLifeTime
     {
@@ -34,27 +46,32 @@ public class Box : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        const float minForce = 2.0f;
-        const float maxForce = 3.0f;
-        int rand = Random.Range(-1, 2);
-        Vector2 direction = new Vector2(0, rand);
-        float magnitude = Random.Range(minForce, maxForce);
-        GetComponent<Rigidbody2D>().AddForce(direction * magnitude, ForceMode2D.Force);
         gameEventManager = EasyGetter.GetGameEventManager();
         gameEventManager.AddListener(GameEventType.DownArrowHit, HitDown);
         gameEventManager.AddListener(GameEventType.UpArrowHit, HitUp);
         gameEventManager.AddListener(GameEventType.LeftArrowHit, HitLeft);
         gameEventManager.AddListener(GameEventType.RightArrowHit, HitRight);
+        gameEventManager.AddListener(GameEventType.EscHit, HitEsc);
+    }
+
+    void Update()
+    {
+        if (action)
+            transform.Translate(fallingSpeed * FALLING_DIRECTION * Time.deltaTime);
     }
 
     void OnBecameInvisible()
     {
-        gameEventManager.RemoveListener(GameEventType.DownArrowHit, HitDown);
-        gameEventManager.RemoveListener(GameEventType.UpArrowHit, HitUp);
-        gameEventManager.RemoveListener(GameEventType.LeftArrowHit, HitLeft);
-        gameEventManager.RemoveListener(GameEventType.RightArrowHit, HitRight);
-        ShowStat.destroyed++;
-        Destroy(gameObject);
+        if(action)
+        {
+            gameEventManager.RemoveListener(GameEventType.DownArrowHit, HitDown);
+            gameEventManager.RemoveListener(GameEventType.UpArrowHit, HitUp);
+            gameEventManager.RemoveListener(GameEventType.LeftArrowHit, HitLeft);
+            gameEventManager.RemoveListener(GameEventType.RightArrowHit, HitRight);
+            gameEventManager.RemoveListener(GameEventType.EscHit, HitEsc);
+            ShowStat.destroyed++;
+            Destroy(gameObject);
+        }
     }
 
     private int Scorer(float wc_y_pos)
@@ -77,10 +94,13 @@ public class Box : MonoBehaviour
             Debug.Log("Perfect Hit");
             return PERFECT_HIT_SCORE;
         }
-        else
-        {
-            return NORMAL_HIT_SCORE;
-        }
+        return NORMAL_HIT_SCORE;
+    }
+
+    void HitEsc()
+    {
+        action = !action;
+        gameObject.SetActive(action);
     }
 
     void HitBox()

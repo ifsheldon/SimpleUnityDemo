@@ -7,16 +7,26 @@ using UnityEngine.SceneManagement;
 public class UIEventHandler : MonoBehaviour
 {
     private EventsManager eventsManager;
+
     // Start is called before the first frame update
     void Start()
     {
         eventsManager = EasyGetter.GetUIEventsManager();
-        eventsManager.AddListener(EventType.GameStartedEvent, HandleStartEvent);
+        eventsManager.AddListener(EventType.ChangeSceneEvent, ChangeScene);
         eventsManager.AddListener(EventType.ExitGameEvent, HandleExitEvent);
+        eventsManager.AddListener(EventType.PauseGameEvent, goToOptions);
     }
-    public void HandleStartEvent(int i)
+
+    public void goToOptions(int i)
     {
-        SceneManager.LoadScene(SceneNames.Playing.ToString());
+        //need to implement
+        Debug.Log("Go to options");
+    }
+
+    public void ChangeScene(int i)
+    {
+        SceneNames scene = (SceneNames) i;
+        SceneManager.LoadScene(scene.ToString());
     }
 
     public void HandleExitEvent(int i)
@@ -26,6 +36,4 @@ public class UIEventHandler : MonoBehaviour
         print("Application Quit");
         Application.Quit();
     }
-
-
 }

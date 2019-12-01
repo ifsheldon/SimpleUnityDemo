@@ -6,8 +6,6 @@ using UnityEngine.Events;
 /// </summary>
 public class StartButton : MonoBehaviour
 {
-    
-
     private EventsManager eventsManager;
 
     private UnityEvent<int> start;
@@ -16,12 +14,12 @@ public class StartButton : MonoBehaviour
     void Start()
     {
         eventsManager = EasyGetter.GetUIEventsManager();
-        start = new GameStartedEvent();
-        eventsManager.AddEvent(EventType.GameStartedEvent, start);
+        start = new SceneChangeEvent();
+        eventsManager.AddEvent(EventType.ChangeSceneEvent, start);
     }
 
     public void ButtonClick()
     {
-        start.Invoke(0);
+        start.Invoke((int)SceneNames.Playing);
     }
 }

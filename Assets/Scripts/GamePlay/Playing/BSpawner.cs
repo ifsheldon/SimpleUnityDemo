@@ -14,8 +14,8 @@ public class BSpawner : MonoBehaviour
     private static int BOX_NUM_COEXIST = ConfigManager.Configuration.box_number_coexist;
     private static float MIN_SPAWN_DELAY = ConfigManager.Configuration.min_spawn_delay;
     private static float MAX_SPAWN_DELAY = ConfigManager.Configuration.max_spawn_delay;
-    private static float MIN_FORCE = ConfigManager.Configuration.min_force;
-    private static float MAX_FORCE = ConfigManager.Configuration.max_force;
+    private static float MIN_SPEED = ConfigManager.Configuration.min_speed;
+    private static float MAX_SPEED = ConfigManager.Configuration.max_speed;
 
 
     // SerializeFields which can be seen in Unity editor
@@ -27,11 +27,11 @@ public class BSpawner : MonoBehaviour
 
     // private fields
     private Timer spawnTimer;
-    private Actioner actioner;
     private BoxPolarity[] boxPolarities;
     private SysRandom random;
     private GameObject[] prefabBoxes = new GameObject[4];
     private float y_scaler = 1.0f;
+    private bool action = true;
 
     public float Y_Scaler
     {
@@ -53,7 +53,8 @@ public class BSpawner : MonoBehaviour
     void Start()
     {
         spawnTimer = gameObject.AddComponent<Timer>();
-        actioner = GameObject.FindGameObjectWithTag("GameController").GetComponent<Actioner>();
+        GameEventManager gameEventManager = EasyGetter.GetGameEventManager();
+        gameEventManager.AddListener(GameEventType.EscHit, escHit);
         spawnTimer.Duration = Random.Range(MIN_SPAWN_DELAY, MAX_SPAWN_DELAY);
         spawnTimer.Run();
     }
@@ -61,7 +62,7 @@ public class BSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actioner.Action)
+        if (action) //changed
         {
             GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
             if (boxes.Length < BOX_NUM_COEXIST)
@@ -76,6 +77,10 @@ public class BSpawner : MonoBehaviour
         }
     }
 
+    void escHit()
+    {
+        action = !action;
+    }
 
     public void SpawnBox()
     {
@@ -112,10 +117,9 @@ public class BSpawner : MonoBehaviour
         } while (existPotentialCollision);
 
         GameObject box = Instantiate(prefabBox);
-        Rigidbody2D rigidbody = box.GetComponent<Rigidbody2D>();
         Box b = box.GetComponent<Box>();
         b.Polarity = boxPolarities[kind];
-        rigidbody.AddForce(new Vector2(0, -Random.Range(MIN_FORCE, MAX_FORCE)), ForceMode2D.Impulse);
+        b.FallingSpeed = Random.Range(MIN_SPEED, MAX_SPEED);
         box.transform.localScale = wcLocalScale;
         box.transform.position = wcLocation;
     }

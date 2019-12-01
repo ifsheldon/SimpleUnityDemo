@@ -10,12 +10,15 @@ public class InputChecker : MonoBehaviour
     UnityEvent rightArrowHit = new RightArrowHit();
     UnityEvent upArrowHit = new UpArrowHit();
     UnityEvent downArrowHit = new DownArrowHit();
+    UnityEvent escHit = new EscHit();
 
     private bool previousFrameChangedInput = false;
+
     private int hitCount = 0;
+
     // Config
     private int hitGap = 30;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class InputChecker : MonoBehaviour
         gameEventManager.AddEvent(GameEventType.DownArrowHit, downArrowHit);
         gameEventManager.AddEvent(GameEventType.LeftArrowHit, leftArrowHit);
         gameEventManager.AddEvent(GameEventType.RightArrowHit, rightArrowHit);
+        gameEventManager.AddEvent(GameEventType.EscHit, escHit);
         testAddListener(gameEventManager);
     }
 
@@ -33,7 +37,8 @@ public class InputChecker : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        bool hasInput = !(horizontalInput == 0 & verticalInput == 0);
+        float escInput = Input.GetAxis("Cancel");
+        bool hasInput = !(horizontalInput == 0 && verticalInput == 0 && escInput == 0);
         if (hasInput)
         {
             // only invoke events on first input frame
@@ -44,22 +49,33 @@ public class InputChecker : MonoBehaviour
                 bool left = horizontalInput < 0;
                 bool up = verticalInput > 0;
                 bool down = verticalInput < 0;
-                if (right)
-                    rightArrowHit.Invoke();
-                else if (left)
-                    leftArrowHit.Invoke();
-                if (up)
-                    upArrowHit.Invoke();
-                else if (down)
-                    downArrowHit.Invoke();
+                bool esc = escInput != 0;
+                if (esc)
+                {
+                    escHit.Invoke();
+                }
+                else
+                {
+                    if (right)
+                        rightArrowHit.Invoke();
+                    if (left)
+                        leftArrowHit.Invoke();
+                    if (up)
+                        upArrowHit.Invoke();
+                    if (down)
+                        downArrowHit.Invoke();
+                }
             }
             else
             {
-                hitCount++;
-                if (hitCount > hitGap)
+                if (escInput == 0)
                 {
-                    previousFrameChangedInput = false;
-                    hitCount = 0;
+                    hitCount++;
+                    if (hitCount > hitGap)
+                    {
+                        previousFrameChangedInput = false;
+                        hitCount = 0;
+                    }
                 }
             }
         }
@@ -76,6 +92,12 @@ public class InputChecker : MonoBehaviour
         gameEventManager.AddListener(GameEventType.UpArrowHit, pressUp);
         gameEventManager.AddListener(GameEventType.RightArrowHit, pressRight);
         gameEventManager.AddListener(GameEventType.LeftArrowHit, pressLeft);
+        gameEventManager.AddListener(GameEventType.EscHit, pressEsc);
+    }
+
+    void pressEsc()
+    {
+        Debug.Log("ESC");
     }
 
     void pressRight()
