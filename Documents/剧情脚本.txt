@@ -1,0 +1,90 @@
+Chapter1-1: Beginner's Train
+	A brief introduction on how to play the game.
+	Mozart is born in 1756, as the 7-th children of the family. When he is 3 years old, Mozart showed his talent first time. He has ability of absolute intonation and amazing memory. This chapter happens when Mozart is 5 years old, he is learning harpsichord with his father.
+	BGM: GA1.
+	Passing Requirement: 25%/40%/55% of total score.
+	No skill points awarded.
+
+Chapter1-2: A Genius
+	In 1761-1762, Mozart is learning music with his father. He learned many musical instruments and wrote many productions.
+	BGM: GA2.
+	Passing Requirement: 30%/45%/60% of total score.
+	No skill points awarded.
+
+Chapter2-1: Travel
+	Starts from 1762, Mozart has started his travel between palaces. This chapter presents his play on court.
+	BGM: GA3.
+	Passing Requirement: 40%/55%/70% of total score.
+	Skill Points: 0/0/1.
+
+Chapter2-2: Illness
+	In 1764, his father got illness at London.
+	BGM: GA4.
+	Passing Requirement: 40%/55%/70% of total score.
+	Skill Points: 0/0/1.
+
+Chapter2-3: Johann Sebastian Bach
+	During 1764-1765, Mozart met Bach at London, and wrote his first symphony.
+	BGM: GA5.
+	Passing Requirement: 40%/55%/70% of total score.
+	Skill Points: 0/0/1.
+
+Chapter2-4: Opera
+	Mozart wrote his first opera at 1767, when he is 11 years old. The opara named Apollo et Hyacinthus, and was played by students of University of Salzbury affilited middle school.
+	BGM: GA6.
+	Passing Requirement: 40%/55%/70% of total score.
+	Skill Points: 0/0/1.
+
+Chapter2-5: Italy
+	The study in Italy happens in 1769, Mozart met Giovanni Battista Martini.
+	BGM: GA7.
+	Passing Requirement: 40%/55%/70% of total score.
+	Skill Points: 0/0/1.
+
+Chapter3-1: Salzburg Court
+	Mozart was hired by Salzburg Court, and took office here since 1773.
+	BGM: GA14.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter3-2: Paris Travel
+	Mozart left Salzburg Court in 1777. Later, he went to Paris in 1778. In this time, his mother passed away at July 3rd, 1778.
+	BGM: GA31.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter3-3: Left
+	He left the court and went to Vienna, become a performer and composer.
+	BGM: GA25.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter4-1: Vienna
+	Mozart came to Vienna at Dec 24th, 1781 and become the most talented piano player. He married his wife at Augest 4th, 1782.
+	BGM: GA31.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter4-2: Haydn
+	During 1783-1784, Mozart met Franz Joseph Haydn at Vienna. They became friends.
+	BGM: GA35.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter4-3: Opera Goes On
+	Since 1781's opera became a huge success, Mozart offered music to another opera at 1785. The opera Le Nozze di Figaro showed at May 1st, 1786.
+	BGM: GA38.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter4-4: Beethoven
+	Ludwig van Beethoven learned with Mozart in 1787 for a couple of weeks.
+	BGM: Eine Kleine Nachtmusik.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.
+
+Chapter5: Everything Came to an End
+	Mozart's story ends at Dec 5th, 1791.
+	BGM: KV626.
+	Passing Requirement: 50%/65%/80% of total score.
+	Skill Points: 1/2/3.

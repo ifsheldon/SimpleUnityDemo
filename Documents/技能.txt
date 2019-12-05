@@ -1,0 +1,27 @@
+Double Score: in the following 10/15/20 second, double the score that player gains.
+	Cool down time: 20/25/30 second.
+	Level up points: 3/3/3 points.
+
+Absolute Intonation: in the following 5/10/15 second, auto hit the music block.
+	Cool down time: 20/25/30 second.
+	Level up points: 4/4/4 points.
+
+Bonus Score: immediately get 300/500/1000 score.
+	Cool down time: 30 second.
+	Level up points: 5/2/3 points.
+
+Block Reduction: randomly remove half of the music blocks and give score as 'perfect' hit.
+	Cool down time: 60/45/30 second.
+	Level up points: 4/4/6 points.
+
+Loser Eat Dust: time goes back to 10/20/30 seconds before without reduce score.
+	Cool down time: 60 second.
+	Level up points: 10/4/8 points.
+
+Clear: hit all the present music blocks and give score as 'perfect' hit.
+	Cool down time: 90/75/60 second.
+	Level up points: 6/8/10 points.
+
+Trible Score: in the following 7/10/15 second, triple the score that player get.
+	Cool down time: 25/30/35 second.
+	Level up points: 6/6/6 points.
