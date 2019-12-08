@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 using SysRandom = System.Random;
 
 /// <summary>
+/// DEPRECATED
 /// Box Spawner
 /// </summary>
 public class BSpawner : MonoBehaviour

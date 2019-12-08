@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: 1497750161}
   - component: {fileID: 1497750162}
   - component: {fileID: 1497750163}
+  - component: {fileID: 1497750159}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: GameController
@@ -1501,7 +1502,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497750155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24109190b62ed9741a89ff8f327cc9cd, type: 3}
   m_Name: 
@@ -1526,6 +1527,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0f67b21a1749f4b9530e05b0e7980a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1497750159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497750155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a3eef0a4b0de34cbc2f36f92460fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabBoxUp: {fileID: 8453943393348816102, guid: 3b585d2ac756e434484d67bedf5cce09,
+    type: 3}
+  prefabBoxDown: {fileID: 8661141543813244938, guid: d3235f8320eb2354e8e21b79719267f7,
+    type: 3}
+  prefabBoxLeft: {fileID: 4336408829486111624, guid: aceab518d05a9ba40af8fb2397f5aa96,
+    type: 3}
+  prefabBoxRight: {fileID: 2358995697617108341, guid: 658e35e84b9fffb44b5be1c13488edea,
+    type: 3}
 --- !u!114 &1497750160
 MonoBehaviour:
   m_ObjectHideFlags: 0
