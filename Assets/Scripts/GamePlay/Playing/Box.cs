@@ -24,7 +24,14 @@ public class Box : MonoBehaviour
     private int hitLifeTime = 1;
     private float fallingSpeed = 0.0f;
     private bool action = true;
-    private Skill skill = SkillManager.GetSkill();
+    private Skill skill = SkillManager.GetSkill();//并发怎么办？
+    private float scoreMultiplier = 1.0f;
+
+    public float ScoreMultiplier
+    {
+        get => scoreMultiplier;
+        set => Math.Abs(value);
+    }
 
     public float FallingSpeed
     {
@@ -59,9 +66,23 @@ public class Box : MonoBehaviour
     void Update()
     {
         if (action)
+        {
             transform.Translate(fallingSpeed * FALLING_DIRECTION * Time.deltaTime);
+            if (skill.Expired)
+            {
+                skill.OnExpired(this);
+            }
+            else
+            {
+                skill.TakeEffect(this);//////////////
+            }
+        }
     }
 
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
     void OnBecameInvisible()
     {
         if (action)
@@ -79,6 +100,7 @@ public class Box : MonoBehaviour
 
     private int Scorer(float wc_y_pos)
     {
+        int addScore = 0;
         // screen space: bottom left (0.0) top right (pixelWidth,pixelHeight)
         int pixelHeight = Screen.height;
         int baseline_sc_y = (int) (PERFECT_BASELINE * pixelHeight);
@@ -95,10 +117,15 @@ public class Box : MonoBehaviour
         if (wc_y_pos > lower_wc_y && wc_y_pos < upper_wc_y)
         {
             Debug.Log("Perfect Hit");
-            return PERFECT_HIT_SCORE;
+            addScore = PERFECT_HIT_SCORE;
+        }
+        else
+        {
+            addScore = NORMAL_HIT_SCORE;
         }
 
-        return NORMAL_HIT_SCORE;
+        addScore = (int) (addScore * scoreMultiplier);
+        return addScore;
     }
 
     void HitEsc()
@@ -107,7 +134,7 @@ public class Box : MonoBehaviour
         gameObject.SetActive(action);
     }
 
-    void HitBox()
+    public void HitBox()
     {
         float sc_allow_area = ALLOW_HIT_AREA * Screen.height;
         Vector3 sc_vec = new Vector3(0, sc_allow_area, 0);
@@ -160,6 +187,7 @@ public class Box : MonoBehaviour
 
     void HitSkill()
     {
+        skill.Activate();
         skill.TakeEffect(this);
     }
 }

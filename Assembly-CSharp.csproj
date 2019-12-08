@@ -98,8 +98,15 @@
     <Compile Include="Assets\scripts\GamePlay\Playing\SkillIndicator.cs" />
     <Compile Include="Assets\scripts\GamePlay\Playing\Timer.cs" />
     <Compile Include="Assets\scripts\GamePlay\SkillManager.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\AbsIntonation.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\BlockReduction.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\BonusScore.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\Clear.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\DoubleScore.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\LoserEatDust.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\NullSkill.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\Skill.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\TripleScore.cs" />
     <Compile Include="Assets\scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\scripts\Menu\MenuNames.cs" />
     <Compile Include="Assets\scripts\SceneNames.cs" />

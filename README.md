@@ -1,11 +1,8 @@
 # A simple demo
 
-## Change Log 2019.12.1
+## Change Log 2019.12.8
 
-* added `esc` response and pause
-* added corresponding scenes
-* optimized codes
-* added support and interface for skill
+* added a lot of skills according to `技能.txt`
 
 ## TODOs
 
