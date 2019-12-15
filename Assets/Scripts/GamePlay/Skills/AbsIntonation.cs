@@ -1,5 +1,9 @@
 ﻿public class AbsIntonation : Skill
 {
+    public AbsIntonation(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     // the logic seems ok, have not been checked
     public override bool ShouldTakeEffect(Box b)
     {

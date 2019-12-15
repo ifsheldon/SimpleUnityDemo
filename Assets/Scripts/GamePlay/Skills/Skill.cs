@@ -2,11 +2,15 @@
 
 public abstract class Skill
 {
-    private float coolDownTime = 100;
+    private SkillTimeConfig skillTimeConfig;
     private float timer = 0;
     private bool activated = false;
-    private float lastDuration = 10f;
     private bool cooling = false;
+
+    public Skill(SkillTimeConfig stc)
+    {
+        skillTimeConfig = stc;
+    }
 
     public void Activate()
     {
@@ -18,11 +22,6 @@ public abstract class Skill
         }
     }
 
-    public float CoolDownTime
-    {
-        get => coolDownTime;
-        set => Math.Abs(value);
-    }
 
     public bool IsActivated
     {
@@ -32,11 +31,6 @@ public abstract class Skill
 
     public bool IsCooling => cooling;
 
-    public float LastDuration
-    {
-        get => lastDuration;
-        set => Math.Abs(value);
-    }
 
     public float Timer => timer;
 
@@ -59,7 +53,7 @@ public abstract class Skill
 
     public float TimeToReady()
     {
-        return coolDownTime - timer;
+        return skillTimeConfig.CoolDownTime - timer;
     }
 
 
@@ -68,12 +62,12 @@ public abstract class Skill
         if (cooling)
         {
             timer += elapsedTime;
-            if (timer >= lastDuration)
+            if (timer >= skillTimeConfig.LastDuration)
             {
                 activated = false;
             }
 
-            if (timer >= coolDownTime)
+            if (timer >= skillTimeConfig.CoolDownTime)
             {
                 cooling = false;
             }

@@ -6,12 +6,11 @@ using UnityEngine.Assertions;
 
 public static class SkillManager
 {
-    private static Skill skill = new NullSkill();
+    private static Skill skill = SkillFactory.GetSkill(SkillEnum.NullSkill, Level.L1);
 
-    public static void SetSkill(Skill s)
+    public static void SetSkill(SkillEnum s, Level l)
     {
-        Assert.IsNotNull(skill);
-        skill = s;
+        skill = SkillFactory.GetSkill(s, l);
     }
 
     public static Skill GetSkill()

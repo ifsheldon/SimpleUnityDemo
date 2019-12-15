@@ -1,5 +1,10 @@
 ﻿class NullSkill : Skill
 {
+    public NullSkill(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
+
     public override bool ShouldTakeEffect(Box b)
     {
         return false;

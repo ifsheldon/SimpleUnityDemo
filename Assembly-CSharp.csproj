@@ -107,6 +107,10 @@
     <Compile Include="Assets\scripts\GamePlay\Skills\NullSkill.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\Skill.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\TripleScore.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\util\Level.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillEnum.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillFactory.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillTimeConfig.cs" />
     <Compile Include="Assets\scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\scripts\Menu\MenuNames.cs" />
     <Compile Include="Assets\scripts\SceneNames.cs" />

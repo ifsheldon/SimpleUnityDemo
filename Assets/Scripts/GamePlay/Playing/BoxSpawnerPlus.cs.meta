@@ -3,7 +3,15 @@ guid: 96a3eef0a4b0de34cbc2f36f92460fab
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabBoxUp: {fileID: 8453943393348816102, guid: 3b585d2ac756e434484d67bedf5cce09,
+      type: 3}
+  - prefabBoxDown: {fileID: 8661141543813244938, guid: d3235f8320eb2354e8e21b79719267f7,
+      type: 3}
+  - prefabBoxLeft: {fileID: 4336408829486111624, guid: aceab518d05a9ba40af8fb2397f5aa96,
+      type: 3}
+  - prefabBoxRight: {fileID: 2358995697617108341, guid: 658e35e84b9fffb44b5be1c13488edea,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

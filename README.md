@@ -2,8 +2,7 @@
 
 ## Change Log 2019.12.8
 
-* added a lot of skills according to `技能.txt`
-* changed the logic of Box spawning, now with 4 tracks.
+* added Skill Level support for skills
 
 ## TODOs
 

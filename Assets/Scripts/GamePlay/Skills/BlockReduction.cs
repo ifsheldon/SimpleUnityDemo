@@ -7,6 +7,10 @@ public class BlockReduction : Skill
     Random r = new Random();
     private static int PERFECT_HIT_SCORE = ConfigManager.Configuration.perfect_hit_score;
 
+    public BlockReduction(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     public override bool ShouldTakeEffect(Box b)
     {
         return IsActivated;

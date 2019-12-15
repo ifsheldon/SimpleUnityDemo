@@ -1,5 +1,9 @@
 ﻿class DoubleScore : Skill
 {
+    public DoubleScore(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     public override bool ShouldTakeEffect(Box b)
     {
         return IsActivated;

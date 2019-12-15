@@ -1,5 +1,9 @@
 ﻿class TripleScore : Skill
 {
+    public TripleScore(SkillTimeConfig stc) : base(stc)
+    {
+        
+    }
     public override bool ShouldTakeEffect(Box b)
     {
         return IsActivated;

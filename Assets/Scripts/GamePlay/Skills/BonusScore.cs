@@ -1,5 +1,9 @@
 ﻿public class BonusScore : Skill
 {
+    public BonusScore(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     private int addScore = 30;
 
     public override bool ShouldTakeEffect(Box b)

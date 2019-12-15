@@ -1,5 +1,9 @@
 ﻿public class Clear : Skill
 {
+    public Clear(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     private static int PERFECT_HIT_SCORE = ConfigManager.Configuration.perfect_hit_score;
     public override bool ShouldTakeEffect(Box b)
     {

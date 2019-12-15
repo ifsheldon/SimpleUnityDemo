@@ -1,5 +1,9 @@
 ﻿public class LoserEatDust : Skill
 {
+    public LoserEatDust(SkillTimeConfig stc) : base(stc)
+    {
+
+    }
     ///////////////???
     public override bool ShouldTakeEffect(Box b)
     {
