@@ -6,6 +6,9 @@ using UnityEngine.Assertions;
 
 public static class SkillManager
 {
+    // PlayerPrefs里有<string,string>哈希表
+    // key "skillChosen"
+    // key "skillLevel"
     private static Skill skill = SkillFactory.GetSkill(SkillEnum.NullSkill, Level.L1);
 
     public static void SetSkill(SkillEnum s, Level l)

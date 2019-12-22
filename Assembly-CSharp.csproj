@@ -111,6 +111,7 @@
     <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillEnum.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillFactory.cs" />
     <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillTimeConfig.cs" />
+    <Compile Include="Assets\scripts\GamePlay\Skills\util\SkillTimer.cs" />
     <Compile Include="Assets\scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\scripts\Menu\MenuNames.cs" />
     <Compile Include="Assets\scripts\SceneNames.cs" />
